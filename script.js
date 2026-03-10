@@ -21,10 +21,15 @@ formulario.addEventListener("submit", async (evento) => {
             const cidade = dados.localidade;
             const dadosGeo = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(cidade)}l&count=1&language=pt&format=json&countryCode=BR`);
             const dadosGeoJson =  await dadosGeo.json();
-        };
+            if(dadosGeoJson.results && dadosGeoJson.results.length>0){
+                const {latitude,longitude} = dadosGeoJson.results[0];
+                
+        }else{
+
+        }
 
     } catch (error) {
-        resultado.innerHTML("Erro ao consultar o CEP.")
+        resultado.innerHTML("Erro ao consultar o CEP.");
 
     }
 });
