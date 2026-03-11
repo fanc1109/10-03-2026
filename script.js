@@ -20,20 +20,19 @@ formulario.addEventListener("submit", async (evento) => {
             resultado.innerHTML = "Rua: " + dados.logradouro + "<br> Bairro: " + dados.bairro + "<br> Cidade: " + dados.localidade + "-" + dados.uf;
             const cidade = dados.localidade;
             const dadosGeo = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(cidade)}l&count=1&language=pt&format=json&countryCode=BR`);
-            const dadosGeoJson =  await dadosGeo.json();
-            if(dadosGeoJson.results && dadosGeoJson.results.length>0){
-                const {latitude,longitude} = dadosGeoJson.results[0];
+            const dadosGeoJson = await dadosGeo.json();
+            if (dadosGeoJson.results && dadosGeoJson.results.length > 0) {
+                const { latitude, longitude } = dadosGeoJson.results[0];
                 const clima = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`);
-               const climaJson = await clima.json();
-     
-              
-        }else{
+                const climaJson = await clima.json();
 
+            } else{
+
+            }
         }
 
-    } catch (error) {
-        resultado.innerHTML("Erro ao consultar o CEP.");
+        }catch (error) {
+            resultado.innerHTML("Erro ao consultar o CEP.");
 
-    }
-}
-});
+        }
+    });
