@@ -9,7 +9,8 @@ formulario.addEventListener("submit",async(evento)=>{
         alert("Por favor, digite um CEP com oito dígitos");
         return;
     }
-    resultado.innerHTML="Buscando...";
+    //resultado.innerHTML="Buscando...";
+    resultado.innerHTML = "<img height='50' src='Loading_2.gif'></img>"
     try{
         const endereco = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
         const dados = await endereco.json();
@@ -34,7 +35,7 @@ formulario.addEventListener("submit",async(evento)=>{
                 const temperatura = climaJson.current_weather.temperature;
                 const velocVento = climaJson.current_weather.windspeed;
                 const resultadoClima ="<br>Temperatura: "+temperatura+"°C"+"<br>"+"Velocidade do vento:"+velocVento+"Km/h.";
-                 resultado.innerHTML=(resultadoCEP+resultadoClima)
+                 resultado.innerHTML=(resultadoCEP+resultadoClima);
             }else{
                 console.log("Não entrou.")
             }
