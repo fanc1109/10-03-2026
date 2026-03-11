@@ -10,7 +10,7 @@ formulario.addEventListener("submit",async(evento)=>{
         return;
     }
     //resultado.innerHTML="Buscando...";
-    resultado.innerHTML = "<img height='50' src='Loading_2.gif'></img>"
+    resultado.innerHTML = "<img src='Loading_2.gif' id='loader' alt='Carregando...' hidden>"
     try{
         const endereco = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
         const dados = await endereco.json();

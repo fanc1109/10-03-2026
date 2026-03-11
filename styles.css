@@ -1,0 +1,77 @@
+/* Configurações de layout para empilhar os elementos */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Coloca um embaixo do outro */
+    align-items: center;    /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente na tela */
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Estilização do Formulário */
+#cepForm {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+label {
+    font-weight: bold;
+    color: #444;
+}
+
+input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background-color: #27ae60;
+}
+
+/* Área de Resultado (fica logo abaixo do form) */
+#resultado {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    min-height: 50px;
+    color: #333;
+    line-height: 1.6;
+    /* Adiciona uma sombra suave se houver conteúdo */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Forçar o Loader a aparecer (ignora o atributo 'hidden' do JS) */
+#loader, img[src*="Loading_2.gif"] {
+    display: block !important;
+    margin: 10px auto;
+    width: 64px;
+    height: 64px;
+}
