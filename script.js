@@ -23,7 +23,10 @@ formulario.addEventListener("submit", async (evento) => {
             const dadosGeoJson =  await dadosGeo.json();
             if(dadosGeoJson.results && dadosGeoJson.results.length>0){
                 const {latitude,longitude} = dadosGeoJson.results[0];
-                
+                const clima = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`);
+               const climaJson = await clima.json();
+     
+              
         }else{
 
         }
@@ -32,4 +35,5 @@ formulario.addEventListener("submit", async (evento) => {
         resultado.innerHTML("Erro ao consultar o CEP.");
 
     }
+}
 });
